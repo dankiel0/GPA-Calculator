@@ -6,12 +6,12 @@ public class Course {
 	private float 	credit;
 	private Type 	type;
 	
-	public String 	getName()			{return name;}
-	public Grade 	getGrade()			{return grade;}
-	public float 	getUnweightedGPA() 		{return unweightedGPA;}
-	public float 	getWeightedGPA()		{return weightedGPA;}
-	public float 	getCredit()			{return credit / 5;}
-	public Type 	getType()			{return type;}
+	public String 	getName()		{return name;}
+	public Grade 	getGrade()		{return grade;}
+	public float 	getUnweightedGPA() 	{return unweightedGPA;}
+	public float 	getWeightedGPA()	{return weightedGPA;}
+	public float 	getCredit()		{return credit / 5;}
+	public Type 	getType()		{return type;}
 	
 	public Course(String name, Grade grade, float credits, Type type) {
 		this.name = name;
