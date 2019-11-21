@@ -86,14 +86,15 @@ public class Main extends JFrame {
 					return;
 				}
 				
-				courses[i] = new Course(name, grade, credit, type);
+				Course course = new Course(name, grade, credit, type);
+				courses[i] = course;
+				
 			}
-			
 			
 			gpa.calculateTotalGPA(courses);
 			
 			
-			JOptionPane.showMessageDialog(this, "unweighted GPA: " + gpa.getUnweightedGPA() + "\nweighted GPA: " + gpa.getWeightedGPA(), " your GPA's", JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(this, String.format("unweighted GPA: %.4f \nweighted GPA: %.4f", gpa.getUnweightedGPA(), gpa.getWeightedGPA()), " your GPA's", JOptionPane.INFORMATION_MESSAGE);
 			
 		});
 		
@@ -227,14 +228,10 @@ public class Main extends JFrame {
 				if(event.getSource() == courseRows.get(i).getComponent(4) && courseRows.size() > 1) {
 
 					// removes the courseRow from the list.
-					courseRows.get(i).equals(null);
 					courseRows.remove(i);
-
+					
 					// removes the courseRow from the contentPane.
-					((JPanel) ((JPanel) getContentPane().getComponent(0)).getComponent(3)).getComponent(i).equals(null);
 					((JPanel) ((JPanel) getContentPane().getComponent(0)).getComponent(3)).remove(i);
-
-					System.gc();
 
 					// resizes the frame to remove the previous courseRow space.
 					pack();
@@ -264,7 +261,7 @@ public class Main extends JFrame {
 
 		// sets the style of the gui.
 		try {
-			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+			UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
 		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException e) {}
 
 		new Main();
